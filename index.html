@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Things To Do</title>
+    <title>ToDoList</title>
     <link rel='stylesheet' href='style.css'>
 </head>
 <body>
     <main>
-        <header class='flex'>
+        <header class= 'flex'>
             <h1>Things to do</h1>
         </header>
 
-        <section class='flex'>
-            <div class='toDo_container'>
+        <section class= 'flex'>
+            
+            <div class = 'addInterface'>
+                <input type='text' placeholder="ADD NEW TASK">
+                <button class='addNewTask_btn'>ADD</button>
+            </div>
 
-                <div class="add_new_task flex">
-                <input type='text' placeholder="Add your task">
-                <button class='addButton'> Add </button>
-                </div>
-                <div class="tasks_cont"></div>
+            <div class = 'toDoListBox'>
+                
             </div>
         </section>
 
     </main>
+    
     <script src='app.js'></script>
 </body>
 </html>

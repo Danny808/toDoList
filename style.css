@@ -1,84 +1,113 @@
 *{
-    margin:0;
     box-sizing: border-box;
-    padding: 0;   
-}
-
-html{
-    font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .flex{
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+body{
+    font-size: 62.5%;
 }
 
 header{
-    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
 }
 
 h1{
-    padding: 1rem;
-    font-weight: 500;
     font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5rem;
 }
 
 section{
-    height: 100%;
-    
-}
-
-.toDo_container{
-    width: 50%;
-    max-height: 700px;
-    padding: 15px 10px 10px;
-    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.774);
+    padding: 5rem;
+    flex-direction: column;
 }
 
 input{
+    height: 2rem;
     width: 20rem;
-    height: 1.5rem;
-    border-style: outset;
+    border-radius: outset;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.addNewTask_btn {
+    height: 1.9rem;
+    width: 4rem;
     border-color: rgb(221, 210, 210);
     border-radius: 5px;
-    padding: 5px;
-   
 }
 
-.addButton{
-    padding: 5px;
-    width: 3rem;
-    border-radius: 5px;
-    margin-left: 2px;
-   background-color: green;
-    
-}
-
-.addButton:hover{
+.addNewTask_btn:hover{
     opacity: 50%;
     cursor: pointer;
 }
 
-.tasks_cont{
-    
-    display:block;
-    min-height: 30rem;
+.toDoListBox {
+    width: 80%;
+    height: 100%;
     padding: 2rem;
-    margin: 1.5rem;
+    margin: 3rem;
+    border-radius: 1rem;
     -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-
-   
 }
 
-.task{
-    border: 1px solid #000;
-    border-radius: 10px;
-    height: 2.5rem;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-   
 
+.taskContainer {
+    border:1px solid;
+    height: 5rem;
+    justify-content: flex-start;
+    display: flex;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.taskContent {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn{
+    width: 2rem;
+    height: 2rem;
+    margin: 5px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn:hover {
+ cursor: pointer;
+}
+
+.doneBtn::before{
+    content: 'L';
+    transform: rotate(-30deg);
+    font-size: 1.5rem;
+    margin-right: 7px;
+    
+}
+.removeBtn::before {
+    content: 'X';
+    font-size: 1.5rem;
+    margin-right: 7px;
+    
 }

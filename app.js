@@ -1,22 +1,38 @@
 const input = document.querySelector('input');
-const button = document.querySelector('button');
-const taskCont = document.querySelector('.tasks_cont');
+const addBtn = document.querySelector('.addNewTask_btn');
+const container = document.querySelector('.toDoListBox');
 
-const addTask = () => {
+const createNewElements = () => {
+    //Create Elements
+    const taskContainer = document.createElement('div');
+    const taskContent = document.createElement('p');
+    const btnContainer = document.createElement('div');
+    const doneTaskBtn = document.createElement('button');
+    const removeTaskBtn = document.createElement('button');
+
+    container.appendChild(taskContainer);
+    taskContainer.appendChild(taskContent);
+    
+    taskContent.innerHTML = input.value;
     if(input.value === '') return;
-    let taskDiv = document.createElement('p');
-    taskDiv.className = 'task'
-    taskDiv.innerHTML = input.value;
-    taskCont.appendChild(taskDiv);
+    taskContainer.appendChild(btnContainer);
+    btnContainer.appendChild(doneTaskBtn);
+    btnContainer.appendChild(removeTaskBtn);
+    
+    //Add Class to Elements
+    taskContainer.className = 'taskContainer flex';
+    taskContent.className = "taskContent";
+    btnContainer.className = 'btnContainer';
+    doneTaskBtn.className = 'doneBtn btn';
+    removeTaskBtn.className = 'removeBtn btn';
+
     input.value = '';
 }
 
+const addNewTask = () => {
+    createNewElements();
+    
 
-const add_complate_button = () => 
-{
-    let complateButton = document.createElement('button');
-    complateButton.className = 'addButton'
-    taskCont.appendChild(complateButton);
 }
 
-button.addEventListener('click', addTask);
+addBtn.addEventListener('click', addNewTask)

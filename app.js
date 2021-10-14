@@ -1,19 +1,22 @@
+
 const input = document.querySelector('input');
 const addBtn = document.querySelector('.addNewTask_btn');
 const container = document.querySelector('.toDoListBox');
 
-const createNewElements = () => {
+const addNewTask = () => {
     //Create Elements
+    
     const taskContainer = document.createElement('div');
     const taskContent = document.createElement('p');
     const btnContainer = document.createElement('div');
     const doneTaskBtn = document.createElement('button');
     const removeTaskBtn = document.createElement('button');
 
+
     container.appendChild(taskContainer);
     taskContainer.appendChild(taskContent);
-    
-    taskContent.innerHTML = input.value;
+    let task = input.value;
+    taskContent.innerHTML = task;
     if(input.value === '') return;
     taskContainer.appendChild(btnContainer);
     btnContainer.appendChild(doneTaskBtn);
@@ -27,12 +30,16 @@ const createNewElements = () => {
     removeTaskBtn.className = 'removeBtn btn';
 
     input.value = '';
+
+    removeTaskBtn.addEventListener('click', (e) => {
+        taskContainer.remove();
+    });
+
+    doneTaskBtn.addEventListener('click', () => {
+        taskContainer.style.backgroundColor = 'green'
+    })
 }
 
-const addNewTask = () => {
-    createNewElements();
-    
-
-}
 
 addBtn.addEventListener('click', addNewTask)
+

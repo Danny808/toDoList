@@ -1,45 +1,64 @@
-
 const input = document.querySelector('input');
 const addBtn = document.querySelector('.addNewTask_btn');
 const container = document.querySelector('.toDoListBox');
 
-const addNewTask = () => {
-    //Create Elements
-    
-    const taskContainer = document.createElement('div');
-    const taskContent = document.createElement('p');
-    const btnContainer = document.createElement('div');
-    const doneTaskBtn = document.createElement('button');
-    const removeTaskBtn = document.createElement('button');
+    function addNewTask (e) {
 
+    e.preventDefault();
 
-    container.appendChild(taskContainer);
-    taskContainer.appendChild(taskContent);
     let task = input.value;
-    taskContent.innerHTML = task;
     if(input.value === '') return;
-    taskContainer.appendChild(btnContainer);
-    btnContainer.appendChild(doneTaskBtn);
-    btnContainer.appendChild(removeTaskBtn);
-    
-    //Add Class to Elements
+
+    //TaskDiv
+    const taskContainer = document.createElement('div');
     taskContainer.className = 'taskContainer flex';
+    container.appendChild(taskContainer);
+    
+    //task value
+    const taskContent = document.createElement('p');  
     taskContent.className = "taskContent";
-    btnContainer.className = 'btnContainer';
+    taskContainer.appendChild(taskContent);
+    taskContent.innerText = task;
+
+    //btn container
+    // const btnContainer = document.createElement('div');
+    // btnContainer.className = 'btnContainer';
+    // taskContainer.appendChild(btnContainer);
+
+    //done button
+    const doneTaskBtn =  document.createElement('button');
     doneTaskBtn.className = 'doneBtn btn';
+    doneTaskBtn.innerHTML = '<i class="fas fa-check"></i>'
+    taskContainer.appendChild(doneTaskBtn);
+
+    //remove button
+    const removeTaskBtn = document.createElement('button');
     removeTaskBtn.className = 'removeBtn btn';
-
+    removeTaskBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    taskContainer.appendChild(removeTaskBtn);
+    // Clear Input
     input.value = '';
+   };
 
-    removeTaskBtn.addEventListener('click', (e) => {
-        taskContainer.remove();
-    });
+   function removeTask (e) {
+       let item = e.target;
+       if(item.classList[0] === 'removeBtn')
+       {
+           itemToDelate = item.parentNode;
+           itemToDelate.remove();
+       }
 
-    doneTaskBtn.addEventListener('click', () => {
-        taskContainer.style.backgroundColor = 'green'
-    })
-}
+       if(item.classList[0] === "doneBtn")
+       {
+           item.parentNode.classList.toggle('completedTask');
+       }
+
+   }
 
 
-addBtn.addEventListener('click', addNewTask)
+   addBtn.addEventListener('click', addNewTask);
+   container.addEventListener('click', removeTask);
+
+
+
 

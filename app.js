@@ -42,9 +42,9 @@ const container = document.querySelector('.toDoListBox');
        let item = e.target;
        if(item.classList[0] === 'removeBtn')
        {
-           itemToDelate = item.parentNode;
+           itemToDelate = item.parentElement;
            itemToDelate.remove();
-           removeLocalTasks(item);
+           removeLocalTasks(itemToDelate);
        }
 
        if(item.classList[0] === "doneBtn")
@@ -54,6 +54,7 @@ const container = document.querySelector('.toDoListBox');
 
    }
 
+   //LocalStorage
 
    function saveLocalTask(item){
        let items;
@@ -67,6 +68,8 @@ const container = document.querySelector('.toDoListBox');
        localStorage.setItem('items', JSON.stringify(items));
    }
 
+
+
    function getTasks() {
        let items;
        if(localStorage.getItem('items') === null){
@@ -75,8 +78,9 @@ const container = document.querySelector('.toDoListBox');
     else{
         items = JSON.parse(localStorage.getItem('items'));
     }
+
     items.forEach(function(item) {
-        //TaskDiv
+     //TaskDiv
     const taskContainer = document.createElement('div');
     taskContainer.className = 'taskContainer flex';
     container.appendChild(taskContainer);
@@ -103,20 +107,22 @@ const container = document.querySelector('.toDoListBox');
    }
 
    function removeLocalTasks(item){
+       let items;
     if(localStorage.getItem('items') === null){
-        items = [];
+         items = [];
     }
     else{
         items = JSON.parse(localStorage.getItem('items'));
     }
     const itemIndex = item.children[0].innerText;
     items.splice(items.indexOf(itemIndex),1);
+    console.log(items.indexOf(item.children[0]))
     localStorage.setItem('items', JSON.stringify(items));
    }
-
+   document.addEventListener('DOMContentLoaded', getTasks )
    addBtn.addEventListener('click', addNewTask);
    container.addEventListener('click', removeTask);
-   document.addEventListener('DOMContentLoaded', getTasks )
+   
 
 
 

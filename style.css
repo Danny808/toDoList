@@ -14,13 +14,14 @@
 
 body{
     font-family: 'Architects Daughter', cursive;
-    
     font-size: 62.5%;
     background-color: rgb(0, 0, 0);
+    background: rgb(34,0,36);
+    background: rgb(55,46,55);
+background: linear-gradient(180deg, rgba(55,46,55,1) 0%, rgba(131,124,135,1) 61%, rgba(191,185,193,1) 100%, rgba(237,230,237,1) 100%);
 }
 
 header{
-    background-color: rgb(3, 3, 3);
     padding: 2rem;
 }
 
@@ -31,7 +32,7 @@ h1{
 }
 
 section{
-    background-color: rgba(5, 4, 4, 0.103);
+    
     flex-direction: column;
 }
 
@@ -73,7 +74,7 @@ input{
     font-size: 1rem;
     display: flex;
     justify-content: center;
-    font-weight: 900d;
+    font-weight: 900;
     
 }
 
@@ -113,14 +114,6 @@ input{
 
 .btn:hover {
  cursor: pointer;
-}
-
-.doneBtn{
-    background-color: rgba(11, 224, 11, 0.39);
-}
-
-.removeBtn{
-    background-color: rgb(196, 75, 75);
 }
 
 .fa-trash,

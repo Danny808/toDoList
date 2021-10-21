@@ -1,7 +1,7 @@
 const input = document.querySelector('input');
 const addBtn = document.querySelector('.addNewTask_btn');
 const container = document.querySelector('.toDoListBox');
-
+document.addEventListener('DOMContentLoaded', getTasks )
     function addNewTask (e) {
 
     e.preventDefault();
@@ -119,7 +119,7 @@ const container = document.querySelector('.toDoListBox');
     console.log(items.indexOf(item.children[0]))
     localStorage.setItem('items', JSON.stringify(items));
    }
-   document.addEventListener('DOMContentLoaded', getTasks )
+     
    addBtn.addEventListener('click', addNewTask);
    container.addEventListener('click', removeTask);
    
